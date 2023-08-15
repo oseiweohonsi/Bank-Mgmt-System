@@ -7,4 +7,4 @@ main.o: main.cpp
 run:
 	./main
 clean:
-	*.o main
+	rm *.o main

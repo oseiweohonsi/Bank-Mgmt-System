@@ -8,12 +8,24 @@ private:
     double checkingsDeposit; // deposit made into a checkings account
     double accBalance;       // Balance of the account
     std::string userName;    // account holder's name
-    std::string firstName;
+    std::string firstName;   
     std::string middleName;
     std::string lastName;
-    char *DOB; // holds the account holder's date of birth
+    std::string DOB; // holds the account holder's date of birth
+    int day;
+    int month;
+    int year;
+    char accountType; // Checkings or Savings acconut
+
 public:
-    void getUserName(); // gets the account holder's name
+    void getUserInfo(); // gets the account holder's name
+
 };
+// account constructor
+Account::Account() : checkingsDeposit(0.0), savingsDeposit(0.0), accBalance(0.0)
+{
+}
+
+
 
 #endif

@@ -1,5 +1,7 @@
 #include <iostream>
 #include <cctype> // formatting c-strings
+#include <cstdlib>
+#include <ctime>
 #include "Account.h"
 void Account::getUserInfo()
 {
@@ -54,6 +56,23 @@ void Account::getUserInfo()
         std::cin >> savingsDeposit;
         accBalance = savingsDeposit + accBalance;
     }
+    // create account number
+    unsigned seed = time(0);
+    srand(seed);
+    // constants for the maximum account number
+    const int MIN = 0;
+    const int MAX = 9;
+    for (int i = 0; i < 8; i++)
+    {
+        accountNum[i] = (rand() % (MAX - MIN + 1)) + MIN;
+    }
 
 }
 
+void Account::addDeposit()
+{
+    std::cout << "Deposit :$";
+    double tempDeposit;
+    std::cin >> tempDeposit;
+    tempDeposit += accBalance;
+}

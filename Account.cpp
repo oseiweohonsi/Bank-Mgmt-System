@@ -1,9 +1,9 @@
 #include <iostream>
 #include <cctype> // formatting c-strings
 #include "Account.h"
-void Account::getUserName()
+void Account::getUserInfo()
 {
-    // get user's first name
+    // get user's names
     std::cout << "First Name: ";
     std::cin >> firstName;
     std::cout << "Middle Name Initial: ";
@@ -26,5 +26,34 @@ void Account::getUserName()
     middleName[0] = toupper(middleName[0]);
     lastName[0] = toupper(lastName[0]);
     userName = firstName + " " + middleName + ". " + lastName;
+    // Get the user date of birth
+    std::cout << "Date of Birth (dd/mm/yyyy): ";
+    std::cin >> DOB;
+    // create an account
+    std::cout << "What type of account will you be opening with us!\n";
+    std::cout << "Checkings or Savings (C/S): ";
+    std::cin >> accountType;
+    accountType = tolower(accountType);
+    while (accountType != 'c' || accountType != 's')
+    {
+        std::cout << "Enter a valid account type (C/S): ";
+        std::cin >> accountType;
+    }
+    // validate account
+    if (accountType == 'c')
+    {
+        double tempDeposit;
+        std::cout << "Checkings Deposit $:";
+        std::cin >> checkingsDeposit;
+        accBalance = checkingsDeposit + accBalance;
+    }
+    else if (accountType == 's')
+    {
+        double tempDeposit;
+        std::cout << "Savings Deposit $:";
+        std::cin >> savingsDeposit;
+        accBalance = savingsDeposit + accBalance;
+    }
+
 }
 

@@ -76,3 +76,11 @@ void Account::addDeposit()
     std::cin >> tempDeposit;
     tempDeposit += accBalance;
 }
+
+void Account::withdrawAmount()
+{
+    std::cout << "How much would you like to withdraw :$";
+    double tempWithdrawal;
+    std::cin >> tempWithdrawal;
+    accBalance -= tempWithdrawal;
+}

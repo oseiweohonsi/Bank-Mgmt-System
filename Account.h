@@ -21,6 +21,7 @@ private:
 public:
     void getUserInfo(); // gets the account holder's name
     void addDeposit(); // add deposit to accBalance
+    void withdrawAmount(); // withdrawal function
 
 };
 // account constructor

@@ -33,8 +33,13 @@ void Account::getUserInfo()
     lastName[0] = toupper(lastName[0]);
     userName = firstName + " " + middleName + ". " + lastName;
     // Get the user date of birth
-    std::cout << "Date of Birth (dd/mm/yyyy): ";
-    std::cin >> DOB;
+    std::cout << "Date of Birth (dd/mm/yyyy)\n";
+    std::cout << "Day: ";
+    std::cin >> day;
+    std::cout << "Month: ";
+    std::cin >> month;
+    std::cout << "Year: ";
+    std::cin >> year;
     // create an account
     std::cout << "What type of account will you be opening with us!\n";
     std::cout << "Checkings or Savings (C/S): ";
@@ -43,15 +48,6 @@ void Account::getUserInfo()
     while (accountType != 'c' && accountType != 's')
     {
         std::cout << "Enter a valid account type (C/S): ";
-    }
-    // write account type 
-    if (accountType == 'c')
-    {
-        outputFile << "Checkings" << std::endl;
-    }
-    else
-    {
-        outputFile << "Savings" << std::endl;
     }
     // validate account
     if (accountType == 'c')
@@ -74,10 +70,19 @@ void Account::getUserInfo()
     // constants for the maximum account number
     const int MIN = 0;
     const int MAX = 9;
-    for (int i = 0; i < 8; i++)
+    for (int i = 0; i < ACC_NUM_SIZE; i++)
     {
         accountNum[i] = (rand() % (MAX - MIN + 1)) + MIN;
     }
+    // write user data to file
+    outputFile << "Account Number #: ";
+    i = 0;
+    while (i != ACC_NUM_SIZE)
+    {
+        outputFile << (accountNum[i]);
+        i++;
+    }
+    outputFile << std::endl;
 
 }
 

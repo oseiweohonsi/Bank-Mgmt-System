@@ -2,11 +2,9 @@
 #include <cctype> // formatting c-strings
 #include <cstdlib>
 #include <ctime>
-#include <fstream>      // for file operations
 #include "Account.h"
 
 // defines the file operations here
-std::ofstream outputFile("Account.txt", std::ios::out);
 void Account::getUserInfo()
 {
     // get user's names
@@ -74,15 +72,6 @@ void Account::getUserInfo()
     {
         accountNum[i] = (rand() % (MAX - MIN + 1)) + MIN;
     }
-    // write user data to file
-    outputFile << "Account Number #: ";
-    i = 0;
-    while (i != ACC_NUM_SIZE)
-    {
-        outputFile << (accountNum[i]);
-        i++;
-    }
-    outputFile << std::endl;
 
 }
 

@@ -11,7 +11,7 @@ private:
     std::string firstName;   
     std::string middleName;
     std::string lastName;
-    std::string DOB; // holds the account holder's date of birth
+    // holds the account holder's date of birth
     int day;
     int month;
     int year;
@@ -24,10 +24,6 @@ public:
     void withdrawAmount(); // withdrawal function
 
 };
-// account constructor
-Account::Account() : checkingsDeposit(0.0), savingsDeposit(0.0), accBalance(0.0)
-{
-}
 
 
 

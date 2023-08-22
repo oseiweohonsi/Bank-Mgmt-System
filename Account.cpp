@@ -90,3 +90,19 @@ void Account::withdrawAmount()
     std::cin >> tempWithdrawal;
     accBalance -= tempWithdrawal;
 }
+
+// display user info
+void Account::displayUserInfo()
+{
+    std::cout << "Name: " << userName << std::endl;
+    std::cout << "Date of Birth: " << month << "/" << day << "/" << year << std::endl;
+    std::cout << "Account Balance: $" << accBalance << std::endl;
+    std::cout << "Account Number: #";
+    int i = 0;
+    while (i < ACC_NUM_SIZE)
+    {
+        std::cout << accountNum[i];
+        i++;
+    }
+    std::cout << std::endl;
+}

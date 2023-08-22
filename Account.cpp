@@ -2,7 +2,11 @@
 #include <cctype> // formatting c-strings
 #include <cstdlib>
 #include <ctime>
+#include <fstream>      // for file operations
 #include "Account.h"
+
+// defines the file operations here
+std::ofstream outputFile("Account.txt", std::ios::out);
 void Account::getUserInfo()
 {
     // get user's names
@@ -36,10 +40,18 @@ void Account::getUserInfo()
     std::cout << "Checkings or Savings (C/S): ";
     std::cin >> accountType;
     accountType = tolower(accountType);
-    while (accountType != 'c' || accountType != 's')
+    while (accountType != 'c' && accountType != 's')
     {
         std::cout << "Enter a valid account type (C/S): ";
-        std::cin >> accountType;
+    }
+    // write account type 
+    if (accountType == 'c')
+    {
+        outputFile << "Checkings" << std::endl;
+    }
+    else
+    {
+        outputFile << "Savings" << std::endl;
     }
     // validate account
     if (accountType == 'c')

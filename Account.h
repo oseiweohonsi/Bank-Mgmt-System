@@ -1,6 +1,7 @@
 #ifndef ACCOUNT_H
 #define ACCOUNT_H
 #include <string>
+const int ACC_NUM_SIZE = 8;
 class Account
 {
 private:
@@ -16,7 +17,7 @@ private:
     int month;
     int year;
     char accountType; // Checkings or Savings acconut
-    int accountNum[8]; // account number for the created account
+    int accountNum[ACC_NUM_SIZE]; // account number for the created account
 
 public:
     void getUserInfo(); // gets the account holder's name

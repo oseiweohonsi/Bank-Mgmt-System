@@ -16,9 +16,9 @@ void createAccount();
 int main()
 {
     int menuChoice;
+    std::fstream outputFile("Accounts.dat", std::ios::out | std::ios::in | std::ios::binary | std::ios::app);
     do
     {
-        
         displayMenu();
         std::cout << "Enter a menu choice: ";
         std::cin >> menuChoice;
@@ -27,6 +27,13 @@ int main()
             case 1:
                 // create user account
                 createAccount();
+                // write account to binary file
+                outputFile.write(reinterpret_cast<char *>(&bankAccount), sizeof(bankAccount));
+                // clear screen first
+                system("clear");
+                // show created contents
+                bankAccount.displayUserInfo();
+                std::cout << "Account Created...\n";
                 break;
             case 2:
                 break;
@@ -36,6 +43,7 @@ int main()
                 break;
             case 5:
                 // display account details
+                outputFile.read(reinterpret_cast<char *>(&bankAccount), sizeof(bankAccount));
                 break;
             case 6:
                 break;
@@ -54,7 +62,7 @@ int main()
 
 void displayMenu()
 {
-    std::cout << "**********Bank Management System**********" << std::endl;
+    std::cout << "\n\t**********Bank Management System**********" << std::endl;
     std::cout << "1. Create Account\n";
     std::cout << "2. Deposit\n";
     std::cout << "3. Withdraw\n";

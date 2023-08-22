@@ -23,6 +23,7 @@ public:
     void getUserInfo(); // gets the account holder's name
     void addDeposit(); // add deposit to accBalance
     void withdrawAmount(); // withdrawal function
+    void displayUserInfo(); // display the contents of the account
 
 };
 

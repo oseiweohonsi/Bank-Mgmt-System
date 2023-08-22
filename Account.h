@@ -16,7 +16,7 @@ private:
     int month;
     int year;
     char accountType; // Checkings or Savings acconut
-    char accountNum[8]; // account number for the created account
+    int accountNum[8]; // account number for the created account
 
 public:
     void getUserInfo(); // gets the account holder's name

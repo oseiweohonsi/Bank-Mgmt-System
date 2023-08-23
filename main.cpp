@@ -34,6 +34,7 @@ int main()
                 // show created contents
                 bankAccount.displayUserInfo();
                 std::cout << "Account Created...\n";
+                outputFile.close();
                 break;
             case 2:
                 break;
@@ -42,8 +43,6 @@ int main()
             case 4:
                 break;
             case 5:
-                // display account details
-                outputFile.read(reinterpret_cast<char *>(&bankAccount), sizeof(bankAccount));
                 break;
             case 6:
                 break;
@@ -62,6 +61,7 @@ int main()
 
 void displayMenu()
 {
+    system("clear");
     std::cout << "\n\t**********Bank Management System**********" << std::endl;
     std::cout << "1. Create Account\n";
     std::cout << "2. Deposit\n";

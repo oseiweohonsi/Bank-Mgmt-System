@@ -72,7 +72,6 @@ void Account::getUserInfo()
     {
         accountNum[i] = (rand() % (MAX - MIN + 1)) + MIN;
     }
-
 }
 
 void Account::addDeposit()
